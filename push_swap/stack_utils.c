@@ -6,7 +6,7 @@
 /*   By: gtraiman <gtraiman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 19:25:14 by gtraiman          #+#    #+#             */
-/*   Updated: 2024/02/06 22:00:02 by gtraiman         ###   ########.fr       */
+/*   Updated: 2024/02/11 21:42:29 by gtraiman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,35 +74,33 @@ void	ft_stclear(t_stack **lst)
 	lst = NULL;
 }
 
-
 void	rnbr(char *str, int n)
 {
 	ft_putstr_fd(str, 1);
 	ft_putnbr_fd(n, 1);
 }
 
-
-void    ft_stdelone(t_stack **lst, int todel)
+void	ft_stdelone(t_stack **lst, int todel)
 {
-    t_stack *previous;
-    t_stack *current;
+	t_stack	*previous;
+	t_stack	*current;
 
-    if (!lst)
-         return ;
-    current = *lst;
-    previous = NULL;
-    while (current)
-    {
-      if (current->value == todel)
-      {
-          if (previous)
-            previous->next = current->next;
-          else
-            *lst = current->next;
-          free(current);
-          return ;
-      }
-      previous = current;
-      current = current->next;
-    }
+	if (!lst)
+		return ;
+	current = *lst;
+	previous = NULL;
+	while (current)
+	{
+		if (current->value == todel)
+		{
+			if (previous)
+				previous->next = current->next;
+			else
+				*lst = current->next;
+			free(current);
+			return ;
+		}
+		previous = current;
+		current = current->next;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: gtraiman <gtraiman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 21:24:19 by gtraiman          #+#    #+#             */
-/*   Updated: 2024/02/06 15:36:05 by gtraiman         ###   ########.fr       */
+/*   Updated: 2024/02/11 21:41:19 by gtraiman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,16 @@ void	checkdbl(t_stack *stack_a, int *error)
 		}
 		stack_a = stack_a->next;
 	}
+}
+
+void	free_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	if (!tab)
+		return ;
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
 }

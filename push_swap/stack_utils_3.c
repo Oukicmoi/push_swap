@@ -6,7 +6,7 @@
 /*   By: gtraiman <gtraiman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 20:31:04 by gtraiman          #+#    #+#             */
-/*   Updated: 2024/02/06 22:04:52 by gtraiman         ###   ########.fr       */
+/*   Updated: 2024/02/11 20:58:39 by gtraiman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,8 @@ int	ft_abs(int n)
 	return (n);
 }
 
-void fct_exit(void)
+void	fct_exit(void)
 {
 	write(2, "Error\n", 6);
 	exit(1);
-
 }

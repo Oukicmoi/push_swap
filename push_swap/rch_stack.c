@@ -6,7 +6,7 @@
 /*   By: gtraiman <gtraiman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 20:00:41 by gtraiman          #+#    #+#             */
-/*   Updated: 2024/02/06 19:16:04 by gtraiman         ###   ########.fr       */
+/*   Updated: 2024/02/11 21:11:55 by gtraiman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ int	rchvalmin(t_stack **stack_b, int b)
 	tmp = (*stack_b);
 	while (tmp)
 	{
-		if (tmp->value == b - 1)
-			return (tmp->value);
 		if (ft_abs(tmp->value - b) <= pluspr && (tmp->value) - b <= 0)
 		{
 			ipluspr = i;

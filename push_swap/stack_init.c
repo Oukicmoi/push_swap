@@ -6,7 +6,7 @@
 /*   By: gtraiman <gtraiman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:51:40 by gtraiman          #+#    #+#             */
-/*   Updated: 2024/02/06 21:57:55 by gtraiman         ###   ########.fr       */
+/*   Updated: 2024/02/11 21:41:53 by gtraiman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ int	initialize_stack(int ac, char **av, t_stack **stack_c)
 		j = ft_split(av[1], ' ', &error);
 		boucle_stackinitab(j, stack_c, &error);
 		if (error == 1)
-			return (write(2, "Error\n", 6));
+			return (2);
 		if (error == 3)
-			return(1);
+			return (1);
 	}
 	else
 	{
 		boucle_stackinit(av, stack_c, &error);
 		if (error == 1)
-			return (write(2, "Error\n", 6));
+			return (2);
 		if (error == 3)
-			return(1);
+			return (1);
 	}
 	printstack("stack_a", stack_c);
 	return (0);
@@ -48,7 +48,6 @@ void	boucle_stackinit(char **k, t_stack **stack_a, int *error)
 	int	i;
 
 	i = 1;
-
 	while (k[i])
 	{
 		ft_stadd_back(stack_a, ft_stnew(ft_statoi(k[i], error)));
@@ -60,12 +59,13 @@ void	boucle_stackinit(char **k, t_stack **stack_a, int *error)
 		}
 		i++;
 	}
-	if(ltlvals(stack_a) == 1)
-	{	
+	if (ltlvals(stack_a) == 1)
+	{
 		*error = 3;
-		return;
+		return ;
 	}
 }
+
 void	boucle_stackinitab(char **k, t_stack **stack_a, int *error)
 {
 	int	i;
@@ -84,19 +84,19 @@ void	boucle_stackinitab(char **k, t_stack **stack_a, int *error)
 		i++;
 	}
 	free_tab(k);
-	if(ltlvals(stack_a) == 1)
-	{	
+	if (ltlvals(stack_a) == 1)
+	{
 		*error = 3;
-		return;
+		return ;
 	}
 }
 
-int ltlvals(t_stack **stack_a)
+int	ltlvals(t_stack **stack_a)
 {
 	int	tmp;
-	
+
 	tmp = 0;
-	if(ft_stsize(stack_a) < 5)
+	if (ft_stsize(stack_a) < 4)
 	{
 		if (ft_stsize(stack_a) == 2)
 		{
@@ -105,15 +105,7 @@ int ltlvals(t_stack **stack_a)
 		}
 		if (ft_stsize(stack_a) == 3)
 			sort_three(stack_a);
-		if (ft_stsize(stack_a) == 4)
-		{
-			tmp = findvalmin(stack_a);
-			ft_stdelone(stack_a,findvalmin(stack_a));
-			sort_three(stack_a);
-			ft_stadd_back(stack_a, ft_stnew(tmp));
-		}
-		return(1);
+		return (1);
 	}
-	return(0);
+	return (0);
 }
-

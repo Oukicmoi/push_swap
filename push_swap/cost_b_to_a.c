@@ -6,7 +6,7 @@
 /*   By: gtraiman <gtraiman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 19:14:40 by gtraiman          #+#    #+#             */
-/*   Updated: 2024/02/06 19:15:32 by gtraiman         ###   ########.fr       */
+/*   Updated: 2024/02/11 22:08:48 by gtraiman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,7 @@ int	ltlcost(t_stack **stack_a, t_stack **stack_b, int ia, int ib)
 	cost = 1;
 	tb = (ft_stsize(stack_b) - 1) / 2;
 	ta = (ft_stsize(stack_a) - 1) / 2;
-	if (ia <= ta && ib <= tb)
-	{
-		if (ia > ib)
-			cost += ia;
-		else
-			cost += ib;
-	}
-	else if (ia <= ta)
-		cost += ia;
-	else if (ib <= tb)
-		cost += ib;
+	cost += ltlcostif(ta, tb, ia, ib);
 	if (ia > ta && ib > tb)
 	{
 		if (ia <= ib)
@@ -67,5 +57,24 @@ int	ltlcost(t_stack **stack_a, t_stack **stack_b, int ia, int ib)
 		cost += (ft_stsize(stack_a) - ia);
 	else if (ib > tb)
 		cost += (ft_stsize(stack_b) - ib);
+	return (cost);
+}
+
+int	ltlcostif(int ta, int tb, int ia, int ib)
+{
+	int	cost;
+
+	cost = 0;
+	if (ia <= ta && ib <= tb)
+	{
+		if (ia > ib)
+			cost += ia;
+		else
+			cost += ib;
+	}
+	else if (ia <= ta)
+		cost += ia;
+	else if (ib <= tb)
+		cost += ib;
 	return (cost);
 }
